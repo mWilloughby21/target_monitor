@@ -1,3 +1,5 @@
+// rebuild_profile.js
+
 const { webkit } = require('playwright');
 const path = require('path');
 
