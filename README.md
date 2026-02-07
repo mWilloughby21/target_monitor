@@ -95,11 +95,11 @@ Run:
 
 ## Running the Monitor
 
-Start the monitor:
-    node src/monitor.js
+ - Start the monitor:
+node src/monitor.js
 
-Optionally override the product TCIN:
-    node src/monitor.js 91347441
+ - Optionally override the product TCIN:
+node src/monitor.js 91347441
 
 ---
 
@@ -107,11 +107,11 @@ Optionally override the product TCIN:
 
 Two CSV files are generated per product:
 
-•   events_<TCIN>.csv
-    Tracks stock state transitions (IN_STOCK / OUT_OF_STOCK)
+ - events_<TCIN>.csv
+Tracks stock state transitions (IN_STOCK / OUT_OF_STOCK)
 
-•   windows_<TCIN>.csv
-    Records availability window durations
+ - windows_<TCIN>.csv
+Records availability window durations
 
 Logs are written to the directory specified by LOG_DIR
 
@@ -128,5 +128,5 @@ Logs are written to the directory specified by LOG_DIR
 
 ## Disclaimer
 
-This project **is not affiliated with or endorsed by Target**
-Use responsibly and at your own risk
+ - This project **is not affiliated with or endorsed by Target**
+ - Use responsibly and at your own risk
