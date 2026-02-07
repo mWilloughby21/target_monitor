@@ -97,11 +97,13 @@ Run:
 
 ## Running the Monitor
 
+```md
  - Start the monitor:
 node src/monitor.js
 
  - Optionally override the product TCIN:
 node src/monitor.js 91347441
+```
 
 ---
 
