@@ -23,6 +23,7 @@ This project is designed to:
 
 ## Project Structure
 
+```md
 .
 ├── .env                    # Environment variables (not committed)
 ├── README.md               
@@ -34,6 +35,7 @@ This project is designed to:
     ├── config.js           # Environment and runtime configuration
     ├── utils.js            # Helper utilities
     └── logging.js          # CSV logging for events and windows
+```
 
 ---
 
