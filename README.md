@@ -82,7 +82,7 @@ LOG_DIR=./logs
 This project uses a persistent browser profile to remain logged into Target
 
 Run:
-    node rebuild_profile.js
+    node src/rebuild_profile.js
 
 - A browser window will open
 - Log into your Target account manually
@@ -94,10 +94,10 @@ Run:
 ## Running the Monitor
 
 Start the monitor:
-    node monitor.js
+    node src/monitor.js
 
 Optionally override the product TCIN:
-    node monitor.js 91347441
+    node src/monitor.js 91347441
 
 ---
 
