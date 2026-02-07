@@ -12,12 +12,12 @@ This project is designed to:
 
 ## Features
 
-- 📡 **Real-time stock polling** using Target’s RedSky API
-- 🧠 **Smart availability detection** with cooldown logic to prevent spam
-- 🛒 **Automated Add-to-Cart** via Playwright (persistent browser profile)
-- 📝 **CSV logging** of stock events and availability windows
-- 🔁 **Visitor rotation + ETag handling** to reduce request blocking
-- ⏱️ Adaptive polling intervals based on stock state
+- **Real-time stock polling** using Target’s RedSky API
+- **Smart availability detection** with cooldown logic to prevent spam
+- **Automated Add-to-Cart** via Playwright (persistent browser profile)
+- **CSV logging** of stock events and availability windows
+- **Visitor rotation + ETag handling** to reduce request blocking
+- Adaptive polling intervals based on stock state
 
 ---
 
@@ -65,6 +65,7 @@ npx playwright install webkit
 
 Create a **.env** file in the project root: (Intentionally excluded from version control)
 
+```md
 TCIN=YOUR_PRODUCT_TCIN
 STORE_ID=1234
 ZIP=12345
@@ -76,6 +77,7 @@ REFIRE_COOLDOWN_MS=25000
 SUCCESS_COOLDOWN_MS=300000
 MIN_QTY_CONSOLE=1
 LOG_DIR=./logs
+```
 
 ---
 
