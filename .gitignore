@@ -1,0 +1,11 @@
+# Environment variables
+.env
+
+# Node dependencies
+node_modules/
+
+# Playwright
+pw-profile/
+
+# Logs
+logs/
