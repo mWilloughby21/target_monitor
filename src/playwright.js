@@ -1,9 +1,9 @@
 // playwright.js
 
-const { exec } = require("child_process");
 const { webkit } = require("playwright");
 const path = require("path");
 const { PDP_LINK } = require("./config");
+const { openLink } = require("./utils");
 
 const USER_DATA_DIR = path.resolve(__dirname, "./pw-profile");
 
@@ -30,32 +30,30 @@ async function addToCartPlaywright() {
     try {
         await page.goto(PDP_LINK, { waitUntil: "domcontentloaded" });
 
-        if (page.locator('[data-test="orderPickupButton"][aria-label*="Add to cart"]')) {
+        const pickupBtn = page.locator('[data-test="fulfillment-cell-pickup"]');
+
+        if (pickupBtn.count() > 0) {
             const shippingBtn = page.locator('[data-test="fulfillment-cell-shipping"]');
-            await shippingBtn.waitFor({ state: "visible", timeout: 1_000 });
+            await shippingBtn.waitFor({ state: "visible", timeout: 3_000 });
             await shippingBtn.click();
-            console.log("test");
         }
-        const btn = page.locator(
-            'button[data-test="shippingButton"][aria-label*="Add to cart"]'
-        );
-        await btn.waitFor({ state: "visible", timeout: 1_000 });
-        await btn.click();
+
+        const atcBtn = page.getByRole("button", { name: /add to cart/i });
+        await atcBtn.waitFor({ state: "visible", timeout: 3_000 });
+        await atcBtn.click();
 
         console.log("✅ Add to Cart clicked");
-        const cartLink = page.locator('[data-test="@web/CartLink"]');
+        // const cartLink = page.locator('[data-test="@web/CartLink"]');
 
         await Promise.all([
             page.waitForFunction(() => {
                 const el = document.querySelector('[data-test="@web/CartLink"]');
                 return el && !el.getAttribute('aria-label').includes('0 items');
             }),
-            btn.click(),
         ]);
 
-        exec(`open "${CO_LINK}"`);
-        
-        await browser?.close();
+        openLink(CO_LINK);
+
     } catch (err) {
         console.error("❌ Playwright Error:", err.message);
     }

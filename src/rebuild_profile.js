@@ -15,7 +15,7 @@ async function rebuildPwProfile() {
     await page.goto('https://www.target.com/', {
     waitUntil: 'domcontentloaded',
     });
-    console.log('👉 Log in manually. Close the browser when done.');
+    console.log('Log in manually. Close the browser when done.');
 
   // Check if logged in
     await new Promise(resolve => {

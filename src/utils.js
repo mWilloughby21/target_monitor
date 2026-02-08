@@ -1,6 +1,7 @@
 // utils.js
 
 const { randomInt } = require('crypto');
+const { exec } = require('child_process');
 
 function genVisitorId() {
     return [...Buffer.from(Array.from({ length: 16 }, () => randomInt(0, 256)))]
@@ -34,9 +35,20 @@ function getNextDelay(isAvail) {
     return isAvail ? randomInt(250, 500) : randomInt(900, 1500);
 }
 
+function openLink(url) {
+    if (process.platform === "win32") {
+        exec(`start "" "${url}"`);
+    } else if (process.platform === "darwin") {
+        exec(`open "${url}"`);
+    } else {
+        exec(`xdg-open "${url}"`);
+    }
+}
+
 module.exports = {
     genVisitorId,
     computeAvailability,
     formatQty,
     getNextDelay,
+    openLink,
 };
